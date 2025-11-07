@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cultura de Confianza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body class="bg-slate-50">
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const { useState } = React;
+
+      function CulturaDeConfianzaPage() {
+        const [lang, setLang] = useState("es");
+        const locales = {
+          es: {
+            brand: "Cultura de Confianza",
+            subtitle:
+              "Formando líderes y familias que transfieren la fe a la próxima generación",
+            ctaPrimary: "Inscríbete",
+            ctaSecondary: "Descargar folleto",
+            nav: ["Inicio","Visión","Programa","Talleres","Testimonios","Recursos","Eventos","Contacto"],
+            visionTitle: "Nuestra visión",
+            visionBody:
+              "Acompañar a pastores, padres y equipos de servidores en la creación de una cultura de confianza que fortalezca la formación espiritual de niños y jóvenes en la iglesia y el hogar.",
+            stats: [
+              { k: "+250", v: "Líderes capacitados" },
+              { k: "15+", v: "Iglesias asociadas" },
+              { k: "8 módulos", v: "Ruta de aprendizaje" },
+            ],
+            programTitle: "Programa en 8 Módulos",
+            programBlurb:
+              "Cada módulo combina fundamentos bíblicos, habilidades relacionales y prácticas para la iglesia local. Se puede impartir en formato de retiro, intensivo de fin de semana o serie mensual.",
+            modules: [
+              { n: 1, t: "Fundamentos bíblicos de la confianza", d: "Marco teológico y visión intergeneracional." },
+              { n: 2, t: "Lenguajes de honra", d: "Prácticas que construyen identidad y pertenencia." },
+              { n: 3, t: "Comunicación valiente", d: "Escucha empática y conversaciones difíciles." },
+              { n: 4, t: "Puentes familia-iglesia", d: "Herramientas para discipulado en el hogar." },
+              { n: 5, t: "Formación de equipos", d: "Roles, acuerdos y ritmos saludables." },
+              { n: 6, t: "Seguridad emocional", d: "Prevención de daño y protocolos de cuidado." },
+              { n: 7, t: "Diseño de experiencias", d: "Cultos, talleres y espacios multigeneracionales." },
+              { n: 8, t: "Plan de implementación", d: "Metas, indicadores y seguimiento." },
+            ],
+            workshopsTitle: "Talleres destacados",
+            workshops: [
+              { t: "Crianza con propósito", d: "Padres como primeros discipuladores: hábitos, liturgias y conversaciones fe-vida." },
+              { t: "Equipos que inspiran confianza", d: "Cómo dar y recibir retroalimentación, acuerdos claros y cuidado del equipo." },
+              { t: "Iglesia segura para la niñez", d: "Buenas prácticas, consentimiento informado y rutas de protección." },
+            ],
+            testimonialsTitle: "Testimonios",
+            testis: [
+              { q: "Nuestro equipo salió con herramientas prácticas y un lenguaje común para amar mejor a nuestras nuevas generaciones.", a: "Pr. M. Rodríguez, MA" },
+              { q: "Transformó la relación entre padres y ministerio de niños.", a: "Líder E. Gómez, RI" },
+            ],
+            resourcesTitle: "Recursos",
+            resources: [
+              { t: "Guía de conversación familia-fe (PDF)", href: "#" },
+              { t: "Lista de cotejo de seguridad emocional (PDF)", href: "#" },
+              { t: "Plan de 30 días: Cultura de confianza (DOC)", href: "#" },
+            ],
+            eventsTitle: "Próximos eventos",
+            eventCols: ["Fecha","Ciudad","Formato"],
+            events: [
+              { date: "Ene 25, 2026", city: "Worcester, MA", type: "Intensivo Sábado" },
+              { date: "Feb 15, 2026", city: "Providence, RI", type: "Retiro líderes" },
+            ],
+            contactTitle: "Contacto",
+            contactBlurb:
+              "¿Quieres llevar Cultura de Confianza a tu iglesia o región? Escríbenos y conversemos sobre fechas y necesidades.",
+            form: { name: "Nombre", email: "Correo", org: "Iglesia/Organización", msg: "Mensaje", send: "Enviar" },
+            footer: "© " + new Date().getFullYear() + " Cultura de Confianza. Todos los derechos reservados.",
+            langSwitch: "EN",
+            brochureNote: "PDF de 1 página con descripción y módulos.",
+          },
+          en: {
+            brand: "Culture of Trust",
+            subtitle: "Equipping leaders and families to pass on faith to the next generation",
+            ctaPrimary: "Register",
+            ctaSecondary: "Download Brochure",
+            nav: ["Home","Vision","Program","Workshops","Stories","Resources","Events","Contact"],
+            visionTitle: "Our vision",
+            visionBody:
+              "We accompany pastors, parents, and ministry teams to build a culture of trust that strengthens the spiritual formation of children and youth at church and at home.",
+            stats: [
+              { k: "+250", v: "Leaders trained" },
+              { k: "15+", v: "Partner churches" },
+              { k: "8 modules", v: "Learning pathway" },
+            ],
+            programTitle: "8-Module Program",
+            programBlurb:
+              "Each module combines biblical foundations, relational skills, and local-church practices. Offered as a retreat, weekend intensive, or monthly series.",
+            modules: [
+              { n: 1, t: "Biblical foundations of trust", d: "Theological framework and intergenerational vision." },
+              { n: 2, t: "Languages of honor", d: "Practices that build identity and belonging." },
+              { n: 3, t: "Courageous communication", d: "Empathic listening and hard conversations." },
+              { n: 4, t: "Family–church bridges", d: "Tools for discipleship at home." },
+              { n: 5, t: "Team formation", d: "Roles, agreements, and healthy rhythms." },
+              { n: 6, t: "Emotional safety", d: "Harm prevention and care protocols." },
+              { n: 7, t: "Experience design", d: "Services, workshops, and multigenerational spaces." },
+              { n: 8, t: "Implementation plan", d: "Goals, indicators, and follow-up." },
+            ],
+            workshopsTitle: "Featured Workshops",
+            workshops: [
+              { t: "Parenting with Purpose", d: "Parents as first disciplers: habits, liturgies, and faith–life conversations." },
+              { t: "Teams that Inspire Trust", d: "How to give/receive feedback, clear agreements, and team care." },
+              { t: "Child-Safe Church", d: "Best practices, informed consent, and protection pathways." },
+            ],
+            testimonialsTitle: "Stories",
+            testis: [
+              { q: "Our team left with practical tools and a shared language to love the next generations better.", a: "Ps. M. Rodriguez, MA" },
+              { q: "It transformed the relationship between parents and kids' ministry.", a: "Leader E. Gomez, RI" },
+            ],
+            resourcesTitle: "Resources",
+            resources: [
+              { t: "Family–Faith Conversation Guide (PDF)", href: "#" },
+              { t: "Emotional Safety Checklist (PDF)", href: "#" },
+              { t: "30-Day Culture of Trust Plan (DOC)", href: "#" },
+            ],
+            eventsTitle: "Upcoming Events",
+            eventCols: ["Date","City","Format"],
+            events: [
+              { date: "Jan 25, 2026", city: "Worcester, MA", type: "Saturday Intensive" },
+              { date: "Feb 15, 2026", city: "Providence, RI", type: "Leaders' Retreat" },
+            ],
+            contactTitle: "Contact",
+            contactBlurb:
+              "Want to bring Culture of Trust to your church or region? Send us a note and let's discuss dates and needs.",
+            form: { name: "Name", email: "Email", org: "Church/Organization", msg: "Message", send: "Send" },
+            footer: "© " + new Date().getFullYear() + " Culture of Trust. All rights reserved.",
+            langSwitch: "ES",
+            brochureNote: "One-page PDF with description and modules.",
+          },
+        };
+        const txt = locales[lang];
+
+        return (
+          <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white text-slate-800">
+            <header className="sticky top-0 z-30 backdrop-blur bg-white/75 border-b border-slate-200">
+              <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="h-9 w-9 rounded-xl bg-teal-600 text-white grid place-content-center font-bold">CT</div>
+                  <span className="font-semibold tracking-tight">{txt.brand}</span>
+                </div>
+                <nav className="hidden md:flex gap-6 text-sm">
+                  {txt.nav.map((n) => (
+                    <a key={n} href={"#" + n} className="hover:text-teal-700">{n}</a>
+                  ))}
+                </nav>
+                <div className="flex items-center gap-2">
+                  <button onClick={() => setLang(lang === "es" ? "en" : "es")}
+                          className="px-3 py-1.5 rounded-xl border border-slate-300 hover:bg-slate-100 text-xs"
+                          aria-label="Language switch">{txt.langSwitch}</button>
+                  <a href="#contact" className="px-3 py-1.5 rounded-xl bg-teal-600 text-white text-xs hover:bg-teal-700">
+                    {txt.ctaPrimary}
+                  </a>
+                </div>
+              </div>
+            </header>
+
+            <section id="Inicio" className="relative">
+              <div className="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                  <h1 className="text-3xl md:text-5xl font-extrabold leading-tight">{txt.brand}</h1>
+                  <p className="mt-4 text-lg md:text-xl text-slate-600">{txt.subtitle}</p>
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <a className="px-5 py-3 rounded-2xl bg-teal-600 text-white hover:bg-teal-700" href="#contact">{txt.ctaPrimary}</a>
+                    <a className="px-5 py-3 rounded-2xl border border-slate-300 hover:bg-slate-50" href="#brochure">{txt.ctaSecondary}</a>
+                  </div>
+                  <div id="brochure" className="mt-3 text-xs text-slate-500">{txt.brochureNote}</div>
+                </div>
+                <div className="relative">
+                  <div className="aspect-video rounded-3xl bg-[url('https://images.unsplash.com/photo-1515202913167-d9a698095ebf?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center shadow-xl"></div>
+                  <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-md p-4 border border-slate-100">
+                    <div className="text-2xl font-bold text-teal-700">{txt.stats[0].k}</div>
+                    <div className="text-xs text-slate-500">{txt.stats[0].v}</div>
+                  </div>
+                  <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-md p-4 border border-slate-100">
+                    <div className="text-2xl font-bold text-teal-700">{txt.stats[1].k}</div>
+                    <div className="text-xs text-slate-500">{txt.stats[1].v}</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="Visión" className="py-16 md:py-24 bg-slate-50 border-y">
+              <div className="max-w-6xl mx-auto px-4">
+                <h2 className="text-2xl md:text-3xl font-bold">{txt.visionTitle}</h2>
+                <p className="mt-4 text-slate-600 max-w-3xl">{txt.visionBody}</p>
+                <div className="mt-8 grid sm:grid-cols-3 gap-4">
+                  {txt.stats.map((s, i) => (
+                    <div key={i} className="rounded-2xl border border-slate-200 bg-white p-6 text-center">
+                      <div className="text-3xl font-extrabold text-teal-700">{s.k}</div>
+                      <div className="text-sm text-slate-500">{s.v}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            <section id="Programa" className="py-16 md:py-24">
+              <div className="max-w-6xl mx-auto px-4">
+                <h2 className="text-2xl md:text-3xl font-bold">{txt.programTitle}</h2>
+                <p className="mt-4 text-slate-600 max-w-3xl">{txt.programBlurb}</p>
+                <div className="mt-8 grid md:grid-cols-2 gap-4">
+                  {txt.modules.map((m) => (
+                    <div key={m.n} className="rounded-2xl border border-slate-200 p-6 hover:shadow-sm">
+                      <div className="text-xs uppercase tracking-wide text-slate-500">Módulo {m.n}</div>
+                      <div className="mt-1 font-semibold">{m.t}</div>
+                      <div className="text-sm text-slate-600 mt-1">{m.d}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            <section id="Talleres" className="py-16 md:py-24 bg-slate-50 border-y">
+              <div className="max-w-6xl mx-auto px-4">
+                <h2 className="text-2xl md:text-3xl font-bold">{txt.workshopsTitle}</h2>
+                <div className="mt-8 grid md:grid-cols-3 gap-4">
+                  {txt.workshops.map((w, i) => (
+                    <div key={i} className="rounded-2xl border border-slate-200 p-6 bg-white">
+                      <div className="font-semibold">{w.t}</div>
+                      <div className="text-sm text-slate-600 mt-2">{w.d}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            <section id="Testimonios" className="py-16 md:py-24">
+              <div className="max-w-6xl mx-auto px-4">
+                <h2 className="text-2xl md:text-3xl font-bold">{txt.testimonialsTitle}</h2>
+                <div className="mt-8 grid md:grid-cols-2 gap-4">
+                  {txt.testis.map((t, i) => (
+                    <div key={i} className="rounded-2xl border border-slate-200 p-6">
+                      <p className="italic text-slate-700">“{t.q}”</p>
+                      <div className="mt-3 text-sm text-slate-500">{t.a}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            <section id="Recursos" className="py-16 md:py-24 bg-slate-50 border-y">
+              <div className="max-w-6xl mx-auto px-4">
+                <h2 className="text-2xl md:text-3xl font-bold">{txt.resourcesTitle}</h2>
+                <ul className="mt-6 grid md:grid-cols-3 gap-3">
+                  {txt.resources.map((r, i) => (
+                    <li key={i}><a className="block rounded-xl border border-slate-200 p-4 hover:bg-white" href={r.href}>{r.t}</a></li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+
+            <section id="Eventos" className="py-16 md:py-24">
+              <div className="max-w-6xl mx-auto px-4">
+                <h2 className="text-2xl md:text-3xl font-bold">{txt.eventsTitle}</h2>
+                <div className="mt-6 overflow-x-auto">
+                  <table className="min-w-full text-left border border-slate-200 rounded-xl overflow-hidden">
+                    <thead className="bg-slate-100 text-slate-600 text-sm">
+                      <tr>{txt.eventCols.map((c) => (<th key={c} className="px-4 py-3 border-b border-slate-200">{c}</th>))}</tr>
+                    </thead>
+                    <tbody>
+                      {txt.events.map((e, i) => (
+                        <tr key={i} className="odd:bg-white even:bg-slate-50">
+                          <td className="px-4 py-3 border-b border-slate-100">{e.date}</td>
+                          <td className="px-4 py-3 border-b border-slate-100">{e.city}</td>
+                          <td className="px-4 py-3 border-b border-slate-100">{e.type}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <section id="contact" className="py-16 md:py-24 bg-slate-900 text-slate-100">
+              <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-start">
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold">{txt.contactTitle}</h2>
+                  <p className="mt-3 text-slate-300 max-w-2xl">{txt.contactBlurb}</p>
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <a className="px-4 py-2 rounded-xl bg-white text-slate-900 hover:bg-slate-200" href="mailto:info@culturadeconfianza.org">info@culturadeconfianza.org</a>
+                    <a className="px-4 py-2 rounded-xl border border-slate-600 hover:bg-slate-800" href="tel:+17815551234">+1 (781) 555-1234</a>
+                    <a className="px-4 py-2 rounded-xl border border-slate-600 hover:bg-slate-800" href="https://wa.me/17815551234" target="_blank" rel="noreferrer">WhatsApp</a>
+                    <a className="px-4 py-2 rounded-xl border border-slate-600 hover:bg-slate-800" href="/contact.vcf" download>vCard</a>
+                  </div>
+                </div>
+
+                <form className="bg-white text-slate-900 rounded-2xl p-6 shadow-xl border border-slate-200">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-sm text-slate-600">{txt.form.name}</label>
+                      <input className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2" placeholder="" />
+                    </div>
+                    <div>
+                      <label className="text-sm text-slate-600">{txt.form.email}</label>
+                      <input type="email" className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2" />
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="text-sm text-slate-600">{txt.form.org}</label>
+                      <input className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2" />
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="text-sm text-slate-600">{txt.form.msg}</label>
+                      <textarea className="mt-1 w-full rounded-xl border border-slate-300 px-3 py-2 h-32"></textarea>
+                    </div>
+                  </div>
+                  <button type="button" className="mt-4 w-full rounded-xl bg-teal-600 text-white py-3 hover:bg-teal-700">{txt.form.send}</button>
+                  <p className="mt-2 text-xs text-slate-500">*Este formulario es demostrativo. Conéctalo a tu servicio favorito (Formspree, Getform, Netlify Forms) o un backend propio.</p>
+                </form>
+              </div>
+            </section>
+
+            <footer className="border-t border-slate-200">
+              <div className="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="text-sm text-slate-500">{txt.footer}</div>
+                <div className="flex items-center gap-4 text-sm">
+                  <a className="hover:text-teal-700" href="#">Instagram</a>
+                  <a className="hover:text-teal-700" href="#">YouTube</a>
+                  <a className="hover:text-teal-700" href="#">Facebook</a>
+                </div>
+              </div>
+            </footer>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<CulturaDeConfianzaPage />);
+    </script>
+  </body>
+</html>
